@@ -1,0 +1,2 @@
+reportlab>=4.0
+playwright>=1.40  # optional: assisted-fill helper and browser tests

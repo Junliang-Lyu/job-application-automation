@@ -1,0 +1,23 @@
+# Private candidate data — never commit
+profile.md
+job-application-answer-bank.md
+config/candidate.local.json
+config/candidate-summary.local.md
+resume/
+cover-letter/
+applications/
+.env
+.env.*
+!.env.example
+credentials.json
+*.pem
+*.key
+
+# Local runtime
+tmp/
+__pycache__/
+*.py[cod]
+*.log
+.browser-profile/
+.browser-discovery-profile/
+.assisted-fill-profile/

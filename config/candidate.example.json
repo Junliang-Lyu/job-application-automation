@@ -1,0 +1,13 @@
+{
+  "name": "Alex Example",
+  "file_prefix": "Alex_Example",
+  "best_gpa": 3.6,
+  "available_from": "June 2027",
+  "availability_note": "graduates May 2027",
+  "contact": [
+    "City, ST",
+    "alex@example.com",
+    "linkedin.com/in/example",
+    "github.com/example"
+  ]
+}

@@ -1,0 +1,5 @@
+const assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs');
+const c={URL,Set,Date,Math,Number,Array,RegExp,Error,Promise,setTimeout,importScripts(){},chrome:{runtime:{onMessage:{addListener(){}}},tabs:{async update(){},async get(){return {url:'https://www.linkedin.com/jobs/view/123/',status:'complete'}}},scripting:{async executeScript(){return [{result:{applicationLinks:['https://jobs.lever.co/acme/123'],text:''}}]}}}};
+vm.createContext(c);vm.runInContext(fs.readFileSync('browser-extension/jobsearch-bridge/worker.js','utf8'),c);c.pause=async()=>{};c.readJobPage=()=>{};
+let reads=0;c.chrome.scripting.executeScript=async()=>{reads++;return [{result:{applicationLinks:['https://jobs.lever.co/acme/123'],text:''}}]};
+(async()=>{const result=await c.read(1,'https://www.linkedin.com/jobs/view/123/','entry');assert.equal(reads,1,'Entry lookup must not wait for JD completeness');assert.equal(result.applicationLinks.length,1);console.log('PASS: entry lookup returns without waiting for JD');})().catch(e=>{console.error(e);process.exitCode=1});
